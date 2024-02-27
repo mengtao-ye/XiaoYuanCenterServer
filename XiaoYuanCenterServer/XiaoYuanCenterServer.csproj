@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C903014-C123-43F1-8D90-0A8247D20C7B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>XiaoYuanCenterServer</RootNamespace>
+    <AssemblyName>XiaoYuanCenterServer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\Dll\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Enum\SocketCode\Udp\UdpCode.cs" />
+    <Compile Include="Data\Enum\SocketCode\Udp\UdpRequestCode.cs" />
+    <Compile Include="Data\Data\Common\CommonConstData.cs" />
+    <Compile Include="Data\Data\MySQL\MySQLConfig.cs" />
+    <Compile Include="Data\Data\Server\ServerData.cs" />
+    <Compile Include="Main\Helper\XiaoYuanDataHelper.cs" />
+    <Compile Include="Main\XiaoYuanCenterMain.cs" />
+    <Compile Include="Data\Data\Mapper\TcpHandlerMapper.cs" />
+    <Compile Include="Data\Data\Mapper\UdpHandlerMapper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Socket\Tools\SocketTools.cs" />
+    <Compile Include="Socket\Udp\Handler\UdpMainServerHandler.cs" />
+    <Compile Include="Socket\Udp\Handler\UdpSubServerHandler.cs" />
+    <Compile Include="Socket\SubServerModule\Data\SubServerCollection.cs" />
+    <Compile Include="Socket\SubServerModule\Data\SubServerData.cs" />
+    <Compile Include="Socket\SubServerModule\Data\SubServerType.cs" />
+    <Compile Include="Socket\SubServerModule\SubServerModule.cs" />
+    <Compile Include="TemplateServer\DataStruct\StringBuilderPool.cs" />
+    <Compile Include="TemplateServer\Data\Const\BytesConst.cs" />
+    <Compile Include="TemplateServer\Data\Const\CommonConstData.cs" />
+    <Compile Include="TemplateServer\Data\Const\GameConstData.cs" />
+    <Compile Include="TemplateServer\Data\Const\Time.cs" />
+    <Compile Include="TemplateServer\Data\HotUpdateData\ServerInfo.cs" />
+    <Compile Include="TemplateServer\Data\PathData\PathData.cs" />
+    <Compile Include="TemplateServer\Data\SocketData\UDP\UdpOnLineData.cs" />
+    <Compile Include="TemplateServer\DesignPattern\Singleton.cs" />
+    <Compile Include="TemplateServer\ExtendMethod\ByteExtendMethod.cs" />
+    <Compile Include="TemplateServer\ExtendMethod\BytesConverterExtend.cs" />
+    <Compile Include="TemplateServer\ExtendMethod\CollectionExtend.cs" />
+    <Compile Include="TemplateServer\ExtendMethod\EndPointExtend.cs" />
+    <Compile Include="TemplateServer\ExtendMethod\LinqExtend.cs" />
+    <Compile Include="TemplateServer\ExtendMethod\ListExtend.cs" />
+    <Compile Include="TemplateServer\ExtendMethod\ObjectConverterExtend.cs" />
+    <Compile Include="TemplateServer\ExtendMethod\ObjectExtend.cs" />
+    <Compile Include="TemplateServer\ExtendMethod\StringExtend.cs" />
+    <Compile Include="TemplateServer\ExtendMethod\TypeExtend.cs" />
+    <Compile Include="TemplateServer\Helper\DataHelper.cs" />
+    <Compile Include="TemplateServer\HotFix\HotFixData.cs" />
+    <Compile Include="TemplateServer\HotFix\HotFixManager.cs" />
+    <Compile Include="TemplateServer\Interface\IClone.cs" />
+    <Compile Include="TemplateServer\Interface\IDataConverter.cs" />
+    <Compile Include="TemplateServer\Interface\IPool.cs" />
+    <Compile Include="TemplateServer\Interface\IRecycle.cs" />
+    <Compile Include="TemplateServer\Interface\IReset.cs" />
+    <Compile Include="TemplateServer\LockStep\Data\CommonLockStepData.cs" />
+    <Compile Include="TemplateServer\LockStep\Data\LockStepData.cs" />
+    <Compile Include="TemplateServer\LockStep\Data\LockStepUserData.cs" />
+    <Compile Include="TemplateServer\LockStep\FixData\Fix32\Fix32.cs" />
+    <Compile Include="TemplateServer\LockStep\FixData\Fix32\Fix32Vector2.cs" />
+    <Compile Include="TemplateServer\LockStep\FixData\Fix32\Fix32Vector3.cs" />
+    <Compile Include="TemplateServer\LockStep\FixData\Fix64\Fix64.cs" />
+    <Compile Include="TemplateServer\LockStep\FixData\Fix64\FixVector2.cs" />
+    <Compile Include="TemplateServer\LockStep\FixData\Fix64\FixVector3.cs" />
+    <Compile Include="TemplateServer\LockStep\LockStepManager.cs" />
+    <Compile Include="TemplateServer\LockStep\LockStepMsg.cs" />
+    <Compile Include="TemplateServer\LockStep\LockStepRoom.cs" />
+    <Compile Include="TemplateServer\Main\ServerCenter.cs" />
+    <Compile Include="TemplateServer\Module\BoardCastModule\BoardCastDelegate.cs" />
+    <Compile Include="TemplateServer\Module\BoardCastModule\BoardCastID.cs" />
+    <Compile Include="TemplateServer\Module\BoardCastModule\BoardCastModule.cs" />
+    <Compile Include="TemplateServer\Module\DataModule\Dictionary\DictionaryModule.cs" />
+    <Compile Include="TemplateServer\Module\DataModule\Dictionary\DictionaryPoolModule.cs" />
+    <Compile Include="TemplateServer\Module\DataModule\List\ListModule.cs" />
+    <Compile Include="TemplateServer\Module\DataModule\List\ListPoolModule.cs" />
+    <Compile Include="TemplateServer\Module\Map\Base\BaseMap.cs" />
+    <Compile Include="TemplateServer\Module\Map\Base\IMap.cs" />
+    <Compile Include="TemplateServer\Module\Map\Base\SingleMap.cs" />
+    <Compile Include="TemplateServer\Module\Pool\ClassPoolModule.cs" />
+    <Compile Include="TemplateServer\Module\Pool\PoolData\Dictionary\Base\BaseDictionaryData.cs" />
+    <Compile Include="TemplateServer\Module\Pool\PoolData\Dictionary\Base\IDictionaryData.cs" />
+    <Compile Include="TemplateServer\Module\Pool\PoolData\Dictionary\Entity\DictionaryData.cs" />
+    <Compile Include="TemplateServer\Module\Pool\PoolData\Dictionary\Entity\DictionaryPoolData.cs" />
+    <Compile Include="TemplateServer\Module\Pool\PoolData\List\Base\BaseListData.cs" />
+    <Compile Include="TemplateServer\Module\Pool\PoolData\List\Base\IListData.cs" />
+    <Compile Include="TemplateServer\Module\Pool\PoolData\List\Entity\ListData.cs" />
+    <Compile Include="TemplateServer\Module\Pool\PoolData\List\Entity\ListPoolData.cs" />
+    <Compile Include="TemplateServer\Module\RandomModule\RandomModule.cs" />
+    <Compile Include="TemplateServer\MySql\Command\Base\BaseMySqlCommand.cs" />
+    <Compile Include="TemplateServer\MySql\Command\Base\IMySqlCommand.cs" />
+    <Compile Include="TemplateServer\MySql\Command\Data\MySQLCoding.cs" />
+    <Compile Include="TemplateServer\MySql\Command\Data\MySQLSort.cs" />
+    <Compile Include="TemplateServer\MySql\Command\Entity\Compare\COMPARE.cs" />
+    <Compile Include="TemplateServer\MySql\Command\Entity\Data\DATABASE.cs" />
+    <Compile Include="TemplateServer\MySql\Command\Entity\Insert\VALUES.cs" />
+    <Compile Include="TemplateServer\MySql\Command\Entity\KeyWord\KEYWORD.cs" />
+    <Compile Include="TemplateServer\MySql\Command\Entity\Limit\LIMIT.cs" />
+    <Compile Include="TemplateServer\MySql\Command\Entity\Order\ORDER.cs" />
+    <Compile Include="TemplateServer\MySql\Command\Entity\Select\SELECT.cs" />
+    <Compile Include="TemplateServer\MySql\Command\Entity\Update\UPDATES.cs" />
+    <Compile Include="TemplateServer\MySql\Command\MySQLCommand.cs" />
+    <Compile Include="TemplateServer\MySql\Data\MySQLData.cs" />
+    <Compile Include="TemplateServer\MySql\MySQLCommond\Base\BaseMySQL.cs" />
+    <Compile Include="TemplateServer\MySql\MySQLCommond\Base\IMySQL.cs" />
+    <Compile Include="TemplateServer\MySql\MySQLCommond\Entity\MySQL.cs" />
+    <Compile Include="TemplateServer\MySql\MySQLCommond\Entity\WhereMySQL.cs" />
+    <Compile Include="TemplateServer\MySql\MySQLManager.cs" />
+    <Compile Include="TemplateServer\MySql\Reflection\Base\BaseMySqlReflection.cs" />
+    <Compile Include="TemplateServer\MySql\Reflection\Base\IMySqlReflection.cs" />
+    <Compile Include="TemplateServer\Server\TCP\Client\Client.cs" />
+    <Compile Include="TemplateServer\Server\TCP\Message.cs" />
+    <Compile Include="TemplateServer\Server\TCP\RequestHandleManager.cs" />
+    <Compile Include="TemplateServer\Server\TCP\RequestHandle\BaseTcpRequestHandle.cs" />
+    <Compile Include="TemplateServer\Server\TCP\RequestHandle\ITCPRequestHandle.cs" />
+    <Compile Include="TemplateServer\Server\TCP\TCPServer.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Base\IUdpServer.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Client\SubUdpRequestHandleManager.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Client\SubUdpServer.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\Base\BaseUdpRequestHandle.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\Base\IUdpRequestHandle.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\BigDataController.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\BigData\PlatformType.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\BigData\SocketData.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\BigData\UdpBigData.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\BigData\UdpBigDataItem.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\BigData\UdpBigDataManager.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\BigData\UdpMsg.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\BigData\UdpMsgType.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\Code\UdpCode.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\Code\UdpRequestCode.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\Handle\UdpCommonRequestHandle.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\UdpRequestHandleManager.cs" />
+    <Compile Include="TemplateServer\Server\Udp\Server\UdpServer.cs" />
+    <Compile Include="TemplateServer\Tools\ByteTools.cs" />
+    <Compile Include="TemplateServer\Tools\ConvertDataTools.cs" />
+    <Compile Include="TemplateServer\Tools\Debug.cs" />
+    <Compile Include="TemplateServer\Tools\DictionaryTools.cs" />
+    <Compile Include="TemplateServer\Tools\EndPointTools.cs" />
+    <Compile Include="TemplateServer\Tools\FileTools.cs" />
+    <Compile Include="TemplateServer\Tools\ListTools.cs" />
+    <Compile Include="TemplateServer\Tools\PathTools.cs" />
+    <Compile Include="TemplateServer\Tools\Random_My.cs" />
+    <Compile Include="TemplateServer\Tools\ReflectioTools.cs" />
+    <Compile Include="TemplateServer\Tools\XmlMapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="TemplateServer\.git\config" />
+    <None Include="TemplateServer\.git\description" />
+    <None Include="TemplateServer\.git\HEAD" />
+    <None Include="TemplateServer\.git\hooks\applypatch-msg.sample" />
+    <None Include="TemplateServer\.git\hooks\commit-msg.sample" />
+    <None Include="TemplateServer\.git\hooks\fsmonitor-watchman.sample" />
+    <None Include="TemplateServer\.git\hooks\post-update.sample" />
+    <None Include="TemplateServer\.git\hooks\pre-applypatch.sample" />
+    <None Include="TemplateServer\.git\hooks\pre-commit.sample" />
+    <None Include="TemplateServer\.git\hooks\pre-merge-commit.sample" />
+    <None Include="TemplateServer\.git\hooks\pre-push.sample" />
+    <None Include="TemplateServer\.git\hooks\pre-rebase.sample" />
+    <None Include="TemplateServer\.git\hooks\pre-receive.sample" />
+    <None Include="TemplateServer\.git\hooks\prepare-commit-msg.sample" />
+    <None Include="TemplateServer\.git\hooks\push-to-checkout.sample" />
+    <None Include="TemplateServer\.git\hooks\update.sample" />
+    <None Include="TemplateServer\.git\index" />
+    <None Include="TemplateServer\.git\info\exclude" />
+    <None Include="TemplateServer\.git\logs\HEAD" />
+    <None Include="TemplateServer\.git\logs\refs\heads\main" />
+    <None Include="TemplateServer\.git\logs\refs\remotes\origin\HEAD" />
+    <None Include="TemplateServer\.git\objects\pack\pack-f706af180f6c872f9a8455f0c2797bddff3e580b.idx" />
+    <None Include="TemplateServer\.git\objects\pack\pack-f706af180f6c872f9a8455f0c2797bddff3e580b.pack" />
+    <None Include="TemplateServer\.git\packed-refs" />
+    <None Include="TemplateServer\.git\refs\heads\main" />
+    <None Include="TemplateServer\.git\refs\remotes\origin\HEAD" />
+    <None Include="TemplateServer\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TemplateServer\.git\objects\info\" />
+    <Folder Include="TemplateServer\.git\refs\tags\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
