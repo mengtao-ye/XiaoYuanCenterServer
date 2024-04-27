@@ -88,18 +88,35 @@ namespace CenterServer
         {
             return Find(id) != null;
         }
+
+        public EndPoint GetPoint(long identify)
+        {
+            if (identify == 0) return GetRandomSubServer().Point;
+            for (int i = 0; i < mSubServerList.Count; i++)
+            {
+                if (mSubServerList[i].ContainsIdentify(identify))
+                {
+                    return mSubServerList[i].Point;
+                }
+            }
+            SubServerData subServerData = GetRandomSubServer();
+            if (subServerData == null) return null;
+            subServerData.AddIdentify(identify);
+            return subServerData.Point;
+        }
+
         /// <summary>
         /// 随机获取一个分布式服务求对象
         /// </summary>
         /// <returns></returns>
-        public EndPoint GetRandomPoint()
+        private SubServerData GetRandomSubServer()
         {
             if (mSubServerList.Count == 0)
             {
                 return null;
             }
             int index = mRandom.Next(0, mSubServerList.Count);
-            return mSubServerList[index].Point;
+            return mSubServerList[index];
         }
         /// <summary>
         /// 移除

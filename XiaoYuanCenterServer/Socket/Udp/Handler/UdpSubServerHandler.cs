@@ -12,10 +12,40 @@ namespace CenterServer
         }
         protected override void ComfigActionCode()
         {
-            Add((short)JuHeYaUdpCode.BaseSubServerRegister, BaseSubServerRegister);
-            Add((short)JuHeYaUdpCode.BaseSubServerHeartBeat, BaseSubServerHeartBeat);
+            Add((short)JuHeYaUdpCode.LoginSubServerRegister, BaseSubServerRegister);
+            Add((short)JuHeYaUdpCode.LoginSubServerHeartBeat, BaseSubServerHeartBeat);
+            Add((short)JuHeYaUdpCode.MetaSchoolSubServerRegister, MetaSchoolSubServerRegister);
+            Add((short)JuHeYaUdpCode.MetaSchoolSubServerHeartBeat, MetaSchoolSubServerHeartBeat);
+        }
+        /// <summary>
+        ///校园布式服务器心跳包
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        private byte[] MetaSchoolSubServerHeartBeat(byte[] data, EndPoint point)
+        {
+            if (data.IsNullOrEmpty() || data.Length != 4)
+            {
+                return null;
+            }
+            SubServerModule.Instance.UpdateSubServer(SubServerType.MetaSchoolServer, data.ToInt(), point);
+            return BytesConst.TRUE_BYTES;
         }
 
+        /// <summary>
+        /// 注册校园服务器
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        private byte[] MetaSchoolSubServerRegister(byte[] data, EndPoint point)
+        {
+            SubServerType subServerType = (SubServerType)data.ToByte();
+            int id = SubServerModule.Instance.RegisterSubServer(subServerType, point);
+            Debug.Log("MetaSchoolSubServerID:" + id);
+            return id.ToBytes();
+        }
         /// <summary>
         ///登基础布式服务器心跳包
         /// </summary>
@@ -42,7 +72,7 @@ namespace CenterServer
         {
             SubServerType subServerType =(SubServerType) data.ToByte();
             int id = SubServerModule.Instance.RegisterSubServer(subServerType, point);
-            Debug.Log("SubServerID:"+id);
+            Debug.Log("LoginSubServerID:"+id);
             return id.ToBytes();
         }
 

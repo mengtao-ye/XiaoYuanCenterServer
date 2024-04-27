@@ -11,12 +11,14 @@
         LockStep_ServerData = UdpRequestCode.LockStep + 2,//服务器端帧同步数据
 
         //SubServer
-        BaseSubServerRegister = UdpRequestCode.SubServer + 1,//基础分布式服务器注册
-        BaseSubServerHeartBeat = UdpRequestCode.SubServer + 2,//基础分布式服务器心跳包
-        
+        LoginSubServerRegister = UdpRequestCode.SubServer + 1,//基础分布式服务器注册
+        LoginSubServerHeartBeat = UdpRequestCode.SubServer + 2,//基础分布式服务器心跳包
+        MetaSchoolSubServerRegister = UdpRequestCode.SubServer + 3,//校园分布式服务器注册
+        MetaSchoolSubServerHeartBeat = UdpRequestCode.SubServer + 4,//校园分布式服务器心跳包
         //MainServer
         MainServerHeartBeat = UdpRequestCode.MainServer + 1,//主服务器心跳包
-        GetBaseServerPoint = UdpRequestCode.MainServer + 2,//获取基础服务器point
+        GetLoginServerPoint = UdpRequestCode.MainServer + 2,//获取登录服务器point
+        GetMetaSchoolServerPoint = UdpRequestCode.MainServer + 3,//获取校园服务器point
 
     }
 }

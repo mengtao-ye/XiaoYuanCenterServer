@@ -13,20 +13,39 @@ namespace CenterServer
         protected override void ComfigActionCode()
         {
             Add((short)JuHeYaUdpCode.MainServerHeartBeat, MainServerHeartBeat);
-            Add((short)JuHeYaUdpCode.GetBaseServerPoint, GetBaseServerPoint);
+            Add((short)JuHeYaUdpCode.GetLoginServerPoint, GetLoginServerPoint);
+            Add((short)JuHeYaUdpCode.GetMetaSchoolServerPoint, GetMetaSchoolServerPoint);
         }
 
+        /// <summary>
+        /// 获取校园分布式服务器Point
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        private byte[] GetMetaSchoolServerPoint(byte[] data, EndPoint point)
+        {
+            if (data.IsNullOrEmpty()) return null;
+            SubServerType subServerType = (SubServerType)data.ToByte();
+            int identify = data.ToInt(1);
+            EndPoint targetPoint = SubServerModule.Instance.GetPoint(subServerType, identify);
+            if (targetPoint == null)
+            {
+                return null;
+            }
+            return targetPoint.ToBytes();
+        }
         /// <summary>
         /// 获取登录分布式服务器Point
         /// </summary>
         /// <param name="data"></param>
         /// <param name="point"></param>
         /// <returns></returns>
-        private byte[] GetBaseServerPoint(byte[] data, EndPoint point)
+        private byte[] GetLoginServerPoint(byte[] data, EndPoint point)
         {
             if (data.IsNullOrEmpty()) return null;
             SubServerType subServerType = (SubServerType)data.ToByte();
-            EndPoint targetPoint = SubServerModule.Instance.FindPoint(subServerType);
+            EndPoint targetPoint = SubServerModule.Instance.GetPoint(subServerType,0);
             if (targetPoint == null)
             {
                 return null;

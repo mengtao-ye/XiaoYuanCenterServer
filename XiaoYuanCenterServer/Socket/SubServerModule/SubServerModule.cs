@@ -71,9 +71,9 @@ namespace CenterServer
         /// </summary>
         /// <param name="subServerEnum"></param>
         /// <returns></returns>
-        public EndPoint FindPoint(SubServerType subServerEnum)
+        public EndPoint GetPoint(SubServerType subServerEnum,long identify)
         {
-            return FindSubServerCollection(subServerEnum)?.GetRandomPoint();
+            return FindSubServerCollection(subServerEnum)?.GetPoint(identify);
         }
 
         /// <summary>
