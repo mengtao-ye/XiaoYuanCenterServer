@@ -91,7 +91,11 @@ namespace CenterServer
 
         public EndPoint GetPoint(long identify)
         {
-            if (identify == 0) return GetRandomSubServer().Point;
+            if (identify == 0)
+            {
+                return GetRandomSubServer()?.Point;
+            }
+
             for (int i = 0; i < mSubServerList.Count; i++)
             {
                 if (mSubServerList[i].ContainsIdentify(identify))

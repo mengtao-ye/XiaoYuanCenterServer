@@ -21,7 +21,7 @@ namespace CenterServer
             //初始化助手
             mCenterServer.InitHelper(new XiaoYuanDataHelper());
             //初始化mySQL 
-            mCenterServer.LauncherMySQL(MySQLConfig.IP , MySQLConfig.DatabaseName, MySQLConfig.UserName, MySQLConfig.Password);
+            //mCenterServer.LauncherMySQL(MySQLConfig.IP , MySQLConfig.DatabaseName, MySQLConfig.UserName, MySQLConfig.Password);
             //初始化udp服务
             UdpHandlerMapper udpHandlerMapper = new UdpHandlerMapper();
             mCenterServer.LauncherUDPServer(ServerData.IPAddress,ServerData.UdpServerPort, udpHandlerMapper);

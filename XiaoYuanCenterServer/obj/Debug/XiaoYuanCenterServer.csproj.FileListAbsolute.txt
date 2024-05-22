@@ -20,3 +20,6 @@ D:\C#Project\XiaoYuanCenterServer\XiaoYuanCenterServer\bin\Debug\K4os.Compressio
 D:\C#Project\XiaoYuanCenterServer\XiaoYuanCenterServer\bin\Debug\K4os.Hash.xxHash.dll
 D:\C#Project\XiaoYuanCenterServer\XiaoYuanCenterServer\bin\Debug\System.Numerics.Vectors.dll
 D:\C#Project\XiaoYuanCenterServer\XiaoYuanCenterServer\obj\Debug\XiaoYuanCenterServer.csproj.CopyComplete
+D:\C#发布文件\XiaoYuanCenter\XiaoYuanCenterServer.exe.config
+D:\C#发布文件\XiaoYuanCenter\XiaoYuanCenterServer.exe
+D:\C#发布文件\XiaoYuanCenter\XiaoYuanCenterServer.pdb
