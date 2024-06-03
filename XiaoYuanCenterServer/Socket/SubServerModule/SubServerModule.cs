@@ -39,7 +39,7 @@ namespace CenterServer
         /// <param name="subServerEnum"></param>
         /// <param name="point"></param>
         /// <returns></returns>
-        public int RegisterSubServer(SubServerType subServerEnum, EndPoint point)
+        public int RegisterSubServer(SubServerType subServerEnum, EndPoint point,byte[] publicPoint)
         {
             int id = ++SubServerID;
             SubServerCollection collection = FindSubServerCollection(subServerEnum);
@@ -48,7 +48,7 @@ namespace CenterServer
                 collection = new SubServerCollection(subServerEnum);
                 mSubServerList.Add(collection);
             }
-            collection.Add(id, point);
+            collection.Add(id, point, publicPoint);
             return id;
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace CenterServer
         /// </summary>
         /// <param name="subServerEnum"></param>
         /// <returns></returns>
-        public EndPoint GetPoint(SubServerType subServerEnum,long identify)
+        public byte[] GetPoint(SubServerType subServerEnum,long identify)
         {
             return FindSubServerCollection(subServerEnum)?.GetPoint(identify);
         }

@@ -12,10 +12,12 @@ namespace CenterServer
         }
         protected override void ComfigActionCode()
         {
-            Add((short)JuHeYaUdpCode.LoginSubServerRegister, BaseSubServerRegister);
-            Add((short)JuHeYaUdpCode.LoginSubServerHeartBeat, BaseSubServerHeartBeat);
+            //Add((short)JuHeYaUdpCode.LoginSubServerRegister, BaseSubServerRegister);
+            //Add((short)JuHeYaUdpCode.LoginSubServerHeartBeat, BaseSubServerHeartBeat);
             Add((short)JuHeYaUdpCode.MetaSchoolSubServerRegister, MetaSchoolSubServerRegister);
             Add((short)JuHeYaUdpCode.MetaSchoolSubServerHeartBeat, MetaSchoolSubServerHeartBeat);
+            Add((short)JuHeYaUdpCode.TcpLoginSubServerRegister, BaseSubServerRegister);
+            Add((short)JuHeYaUdpCode.TcpLoginSubServerHeartBeat, BaseSubServerHeartBeat);
         }
         /// <summary>
         ///校园布式服务器心跳包
@@ -42,7 +44,8 @@ namespace CenterServer
         private byte[] MetaSchoolSubServerRegister(byte[] data, EndPoint point)
         {
             SubServerType subServerType = (SubServerType)data.ToByte();
-            int id = SubServerModule.Instance.RegisterSubServer(subServerType, point);
+            byte[] pointBytes = ByteTools.SubBytes(data, 1);
+            int id = SubServerModule.Instance.RegisterSubServer(subServerType, point, pointBytes);
             Debug.Log("MetaSchoolSubServerID:" + id);
             return id.ToBytes();
         }
@@ -71,7 +74,8 @@ namespace CenterServer
         private byte[] BaseSubServerRegister(byte[] data, EndPoint point)
         {
             SubServerType subServerType =(SubServerType) data.ToByte();
-            int id = SubServerModule.Instance.RegisterSubServer(subServerType, point);
+            byte[] pointBytes = ByteTools.SubBytes(data,1);
+            int id = SubServerModule.Instance.RegisterSubServer(subServerType, point, pointBytes);
             Debug.Log("LoginSubServerID:"+id);
             return id.ToBytes();
         }

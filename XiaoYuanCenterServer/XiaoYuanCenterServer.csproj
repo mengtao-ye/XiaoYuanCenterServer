@@ -61,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Enum\SocketCode\Tcp\TcpCode.cs" />
+    <Compile Include="Data\Enum\SocketCode\Tcp\TcpRequestCode.cs" />
     <Compile Include="Data\Enum\SocketCode\Udp\UdpCode.cs" />
     <Compile Include="Data\Enum\SocketCode\Udp\UdpRequestCode.cs" />
     <Compile Include="Data\Data\Common\CommonConstData.cs" />
@@ -77,6 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Socket\Tcp\Handler\TcpMainServerHandler.cs" />
     <Compile Include="Socket\Udp\Handler\UdpMainServerHandler.cs" />
     <Compile Include="Socket\Udp\Handler\UdpSubServerHandler.cs" />
     <Compile Include="Socket\SubServerModule\Data\SubServerCollection.cs" />

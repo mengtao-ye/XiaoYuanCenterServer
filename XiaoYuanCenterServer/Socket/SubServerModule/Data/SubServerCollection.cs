@@ -37,7 +37,7 @@ namespace CenterServer
         /// </summary>
         /// <param name="id"></param>
         /// <param name="endPoint"></param>
-        public void Add(int id, EndPoint endPoint)
+        public void Add(int id, EndPoint endPoint,byte[] publicPoint)
         {
             if (Contains(id))
             {
@@ -49,7 +49,7 @@ namespace CenterServer
                 Debug.LogError("endPoint is null");
                 return;
             }
-            mSubServerList.Add(new SubServerData(this,endPoint, id));
+            mSubServerList.Add(new SubServerData(this,endPoint, id, publicPoint));
         }
         /// <summary>
         /// 更新数据
@@ -89,24 +89,24 @@ namespace CenterServer
             return Find(id) != null;
         }
 
-        public EndPoint GetPoint(long identify)
+        public byte[] GetPoint(long identify)
         {
             if (identify == 0)
             {
-                return GetRandomSubServer()?.Point;
+                return GetRandomSubServer()?.publicPoint;
             }
 
             for (int i = 0; i < mSubServerList.Count; i++)
             {
                 if (mSubServerList[i].ContainsIdentify(identify))
                 {
-                    return mSubServerList[i].Point;
+                    return mSubServerList[i].publicPoint;
                 }
             }
             SubServerData subServerData = GetRandomSubServer();
             if (subServerData == null) return null;
             subServerData.AddIdentify(identify);
-            return subServerData.Point;
+            return subServerData.publicPoint;
         }
 
         /// <summary>

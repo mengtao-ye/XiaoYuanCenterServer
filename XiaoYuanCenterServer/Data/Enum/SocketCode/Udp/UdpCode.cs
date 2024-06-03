@@ -15,6 +15,8 @@
         LoginSubServerHeartBeat = UdpRequestCode.SubServer + 2,//基础分布式服务器心跳包
         MetaSchoolSubServerRegister = UdpRequestCode.SubServer + 3,//校园分布式服务器注册
         MetaSchoolSubServerHeartBeat = UdpRequestCode.SubServer + 4,//校园分布式服务器心跳包
+        TcpLoginSubServerRegister = UdpRequestCode.SubServer + 5,//Tcp登录部分分布式服务器注册
+        TcpLoginSubServerHeartBeat = UdpRequestCode.SubServer + 6,//Tcp登录部分分布式服务器心跳包
         //MainServer
         MainServerHeartBeat = UdpRequestCode.MainServer + 1,//主服务器心跳包
         GetLoginServerPoint = UdpRequestCode.MainServer + 2,//获取登录服务器point

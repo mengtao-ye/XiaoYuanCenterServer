@@ -28,12 +28,12 @@ namespace CenterServer
             if (data.IsNullOrEmpty()) return null;
             SubServerType subServerType = (SubServerType)data.ToByte();
             int identify = data.ToInt(1);
-            EndPoint targetPoint = SubServerModule.Instance.GetPoint(subServerType, identify);
+            byte[] targetPoint = SubServerModule.Instance.GetPoint(subServerType, identify);
             if (targetPoint == null)
             {
                 return null;
             }
-            return targetPoint.ToBytes();
+            return targetPoint;
         }
         /// <summary>
         /// 获取登录分布式服务器Point
@@ -45,12 +45,12 @@ namespace CenterServer
         {
             if (data.IsNullOrEmpty()) return null;
             SubServerType subServerType = (SubServerType)data.ToByte();
-            EndPoint targetPoint = SubServerModule.Instance.GetPoint(subServerType,0);
+            byte[] targetPoint = SubServerModule.Instance.GetPoint(subServerType,0);
             if (targetPoint == null)
             {
                 return null;
             }
-            return targetPoint.ToBytes();
+            return targetPoint;
         }
         /// <summary>
         /// 心跳包

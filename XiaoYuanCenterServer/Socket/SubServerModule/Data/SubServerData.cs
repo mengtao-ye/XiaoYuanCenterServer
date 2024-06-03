@@ -11,13 +11,15 @@ namespace CenterServer
         private int mFrashCount;
         private SubServerCollection mCollection;
         private List<long> mIdentifyList;//标识
-        public SubServerData(SubServerCollection collection, EndPoint point, int id)
+        public byte[] publicPoint;//公网IP数据
+        public SubServerData(SubServerCollection collection, EndPoint point, int id,byte[] publicPoint)
         {
             mFrashCount = 0;
             ID = id;
             mCollection = collection;
             mIdentifyList = new List<long>();
             Update(point);
+            this.publicPoint = publicPoint;
         }
         public void Update(EndPoint point)
         {

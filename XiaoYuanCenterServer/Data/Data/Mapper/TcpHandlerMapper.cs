@@ -8,8 +8,12 @@ namespace CenterServer
         {
         }
         public void Init()
-        { 
-              
+        {
+            AddTcpHandler(new TcpMainServerHandler(XiaoYuanCenterMain.Instance.centerServer.tcpServer));
+        }
+        public void AddTcpHandler(ITCPRequestHandle handler)
+        {
+            Add(handler.requestCode,handler);
         }
     }
 }
